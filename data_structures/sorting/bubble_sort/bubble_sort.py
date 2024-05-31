@@ -4,14 +4,17 @@ def bubble_sort(input_array):
     for i in range(n):
         # Last i elements are already in place
         second_range = n - i - 1
-        for j in range(0, second_range):
-            # Traverse the input_array from 0 to n-i-1
-            # Swap if the element found is greater than the next element
-            left_item = input_array[j]
-            right_item = input_array[j+1]
-            if left_item > right_item:
-                input_array[j], input_array[j+1] = right_item, left_item
+        push_the_largest_item_to_the_end(input_array, second_range)
     return input_array
+
+
+def push_the_largest_item_to_the_end(input_array, second_range):
+    for j in range(0, second_range):
+        left_item = input_array[j]
+        right_item = input_array[j + 1]
+        if left_item > right_item:
+            input_array[j], input_array[j + 1] = right_item, left_item
+
 
 # Example usage
 arr = [64, 34, 25, 12, 22, 11, 90, 14, 28, 6]
